@@ -3,9 +3,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../configs/contact_handle.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactPage extends StatelessWidget {
+class ContactPage extends StatefulWidget {
   const ContactPage({Key? key}) : super(key: key);
 
+  @override
+  _ContactPageState createState() => _ContactPageState();
+}
+
+class _ContactPageState extends State<ContactPage> {
+  bool _mouseOnCompnyName = false;
   @override
   Widget build(BuildContext context) {
     Future _launchURL(String url) async => await canLaunch(url)
@@ -66,10 +72,49 @@ class ContactPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(FontAwesomeIcons.copyright, size: 16),
+            Text(
+              'Copyrights ',
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+            Icon(
+              FontAwesomeIcons.copyright,
+              size: 16,
+              color: Theme.of(context).primaryColor,
+            ),
             const SizedBox(width: 10),
-            Text('2020-${DateTime.now().year} '),
-            Text('All rights reserved.'),
+            Text(
+              '2020-${DateTime.now().year} ',
+              style: TextStyle(color: Colors.white70),
+            ),
+            Text(
+              'All Rights Reserved. Powered by ',
+              style: TextStyle(color: Colors.white70),
+            ),
+            GestureDetector(
+              onTap: () {
+                _launchURL('https://eyes-soft.web.app/#/');
+              },
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                onEnter: (event) => setState(() {
+                  _mouseOnCompnyName = !event.down;
+                }),
+                onExit: (event) => setState(() {
+                  _mouseOnCompnyName = event.obscured;
+                }),
+                child: Text(
+                  'Eyes Soft',
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: (_mouseOnCompnyName) ? 16 : 14,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ],
@@ -121,7 +166,6 @@ class HireMeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       height: 300,
       width: double.infinity,
