@@ -106,28 +106,8 @@ class _MainScreenState extends State<MainScreen> {
         actions: [
           for (int i = 0; i < _sectionsName.length; i++)
             _appBarActions(_sectionsName[i], i, _sectionsIcons[i]),
-          // EntranceFader(
-          //   offset: Offset(0, -20),
-          //   delay: Duration(seconds: 3),
-          //   duration: Duration(seconds: 1),
-          //   child: Padding(
-          //     padding: const EdgeInsets.all(8.0),
-          //     child: MaterialButton(
-          //       hoverColor: Theme.of(context).primaryColor.withAlpha(150),
-          //       shape: RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(5.0),
-          //           side: BorderSide(color: Theme.of(context).primaryColor)),
-          //       onPressed: () {
-          //         html.window.open(
-          //             'https://drive.google.com/file/d/1abY079fdgZ2VkNOAppX3KyY_wr3MuaGu/view?usp=sharing',
-          //             "pdf");
-          //       },
-          //       child: Text(
-          //         "Resume",
-          //       ),
-          //     ),
-          //   ),
-          // ),
+          if (MediaQuery.of(context).size.width > 500)
+            const SizedBox(width: 20),
         ],
       ),
       body: Container(

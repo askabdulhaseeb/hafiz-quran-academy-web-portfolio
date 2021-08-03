@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     color: Colors.white70,
                     wordSpacing: 3,
-                    fontSize: (size.width > 830) ? 20 : 16,
+                    fontSize: (size.width > 830) ? 20 : 12,
                   ),
                 ),
                 SelectableText(
@@ -119,7 +119,7 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 10),
                     child: Text(
-                      'Hire Me',
+                      'Contact Me',
                       style: TextStyle(color: Theme.of(context).primaryColor),
                     ),
                   ),

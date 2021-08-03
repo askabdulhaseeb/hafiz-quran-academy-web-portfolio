@@ -68,31 +68,40 @@ class _ContactPageState extends State<ContactPage> {
           ],
         ),
         const SizedBox(height: 30),
+        FittedBox(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Copyrights ',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+              Icon(
+                FontAwesomeIcons.copyright,
+                size: 16,
+                color: Theme.of(context).primaryColor,
+              ),
+              const SizedBox(width: 10),
+              Text(
+                '2020-${DateTime.now().year} ',
+                style: TextStyle(color: Colors.white70),
+              ),
+              Text(
+                'All Rights Reserved.',
+                style: TextStyle(color: Colors.white70),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 6),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              'Copyrights ',
-              style: TextStyle(
-                color: Theme.of(context).primaryColor,
-                fontWeight: FontWeight.w900,
-              ),
-            ),
-            Icon(
-              FontAwesomeIcons.copyright,
-              size: 16,
-              color: Theme.of(context).primaryColor,
-            ),
-            const SizedBox(width: 10),
-            Text(
-              '2020-${DateTime.now().year} ',
-              style: TextStyle(color: Colors.white70),
-            ),
-            Text(
-              'All Rights Reserved. Powered by ',
-              style: TextStyle(color: Colors.white70),
-            ),
+            Text('Powered By ', style: TextStyle(color: Colors.white70)),
             GestureDetector(
               onTap: () {
                 _launchURL('https://eyes-soft.web.app/#/');
@@ -117,6 +126,7 @@ class _ContactPageState extends State<ContactPage> {
             ),
           ],
         ),
+        const SizedBox(height: 16),
       ],
     );
   }
